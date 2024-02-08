@@ -2,20 +2,37 @@
 
 // Callbacks
 const handleClick = (ramen) => {
-  // Add code
+  console.log(`You clicked on ${ramen.name}`);
 };
 
 const addSubmitListener = () => {
-  // Add code
-}
+  const form = document.getElementById('ramens');
+
+  form.addEventListener('submit'), (e) => {
+    e.preventDefault();
+
+    const ramenName = document.getElementById('name').value;
+    const ramenRating = document.getElementById('rating').value;
+
+    console.log(`New Ramen: ${ramenName}, Rating: ${ramenRating}`);
+    form.reset();
+  }}
 
 const displayRamens = () => {
-  // Add code
-};
+  const ramenList = document.getElementById('ramenList');
+
+  ramenList.innerHTML = ''
+
+  ramenData.forEach(ramen => {
+    const ramenItem = document.createElement('div');
+    ramenItem.textContent = `${ramen.name} - Rating: ${ramen.rating}`;
+    ramenList.appendChild(ramenItem);
+});
+}
 
 const main = () => {
-  // Invoke displayRamens here
-  // Invoke addSubmitListener here
+  displayRamens(ramenData);
+  addSubmitListener();
 }
 
 main()
@@ -25,5 +42,5 @@ export {
   displayRamens,
   addSubmitListener,
   handleClick,
-  main,
-};
+  main, 
+}
